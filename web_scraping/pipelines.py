@@ -1,13 +1,8 @@
-# Define your item pipelines here
-#
-# Don't forget to add your pipeline to the ITEM_PIPELINES setting
-# See: https://docs.scrapy.org/en/latest/topics/item-pipeline.html
+from scrapy.pipelines.files import FilesPipeline
 
-
-# useful for handling different item types with a single interface
-from itemadapter import ItemAdapter
-
-
-class WebScrapingPipeline:
-    def process_item(self, item, spider):
-        return item
+class CustomFilePipelines(FilesPipeline):
+    def file_path(self, request, response=None, info=None, *, item=None):
+        if item.get('Title')[item.get('Title').find('.'):] == '.xlsx)':
+            return item.get('Title')+'.xlsx'
+        else:
+            return item.get('Title')+'.pdf'

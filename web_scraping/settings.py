@@ -91,5 +91,7 @@ ROBOTSTXT_OBEY = True
 REQUEST_FINGERPRINTER_IMPLEMENTATION = '2.7'
 TWISTED_REACTOR = 'twisted.internet.asyncioreactor.AsyncioSelectorReactor'
 
-ITEM_PIPELINES = {'scrapy.pipelines.files.FilesPipeline': 1}
+
+ITEM_PIPELINES = {'web_scraping.pipelines.CustomFilePipelines': 1}
+# ITEM_PIPELINES = {'scrapy.pipelines.files.FilesPipeline': 1}
 FILES_STORE = 'downloaded_files'
