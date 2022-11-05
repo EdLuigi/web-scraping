@@ -1,10 +1,13 @@
 import scrapy
-
+import shutil
 
 class GovSpider(scrapy.Spider):
     name = 'gov'
     # allowed_domains = ['www.gov.br']
     start_urls = ['https://www.gov.br/ans/pt-br/assuntos/consumidor/o-que-o-seu-plano-de-saude-deve-cobrir-1/o-que-e-o-rol-de-procedimentos-e-evento-em-saude']
+
+    def closed(self, reason):
+        shutil.make_archive('Anexos', 'zip', 'Anexos')
 
     def parse(self, response):
         for link in response.css('.internal-link'):

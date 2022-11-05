@@ -94,4 +94,4 @@ TWISTED_REACTOR = 'twisted.internet.asyncioreactor.AsyncioSelectorReactor'
 
 ITEM_PIPELINES = {'web_scraping.pipelines.CustomFilePipelines': 1}
 # ITEM_PIPELINES = {'scrapy.pipelines.files.FilesPipeline': 1}
-FILES_STORE = 'downloaded_files'
+FILES_STORE = 'Anexos'
